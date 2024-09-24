@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday [name]!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="loading.css">
+    <link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet/less" href="cake.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
+    <script src="script.js"></script>
+    <script src="topping.js"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Section 1: Blow the Candle -->
+    <div id="section1">
+        <h1>Happy Birthday [name]!</h1>
+
+        <div class="instructions-container" style="display:block;">
+            <p>Pick a choice between <button id="mic">Mic</button> or <button id="cursor">Cursor</button> to blow the candle.</p>
+        </div>
+        <div id="instructions">
+            <p id="cursorInstructions">Swipe your cursor close to the flame to put it out.</p>
+            <p id="micInstructions">Blow on the flame to put it out.</p>
+        </div>
+
+        <div class="birthday-cake-container">
+            <div class="birthday-cake-top">
+                <div id="candle"></div>
+                <div id="flame"></div>
+            </div>
+            <div id="icing"></div>
+            <div id="birthday-cake"></div>
+        </div>
+
+        <div class="gift-container">
+            <h3>Blow the candle to earn your prize!</h3>
+            <div id="gift">
+                <img src="#[import image here]" id="img" alt="" width="100" height="100">
+            </div>
+        </div>
+        
+        <button id="nextBtn">Next</button>
+    </div>
+
+    <!-- Section 2: Birthday Message and Balloons -->
+    <div id="section2" class="hidden">
+        <div class="loading"></div>
+        <audio class="song" controls loop>
+            <source src="hbd.mp3"></source>
+            Your browser isn't invited for super fun audio time.
+        </audio>
+
+        <div class="balloons text-center" id="b1"><h2 style="color:#F2B300;">H</h2></div>
+        <div class="balloons text-center" id="b2"><h2 style="color:#0719D4;">B</h2></div>
+        <div class="balloons text-center" id="b3"><h2 style="color:#D14D39;">D</h2></div>
+        <div class="balloons text-center" id="b4"><h2 style="color:#8FAD00;">O</h2></div>
+        <div class="balloons text-center" id="b5"><h2 style="color:#8377E4;">C</h2></div>
+        <div class="balloons text-center" id="b6"><h2 style="color:#99C96A;">H</h2></div>
+        <div class="balloons text-center" id="b7"><h2 style="color:#20CFB4;">!</h2></div>
+
+        <img src="Balloon-Border.png" width="100%" class="balloon-border">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-xs-2 bulb-holder">
+                    <div class="bulb" id="bulb_yellow"></div>
+                </div>
+                <div class="col-md-2 col-xs-2 bulb-holder">
+                    <div class="bulb" id="bulb_red"></div>
+                </div>
+                <div class="col-md-2 col-xs-2 bulb-holder">
+                    <div class="bulb" id="bulb_blue"></div>
+                </div>
+                <div class="col-md-2 col-xs-2 bulb-holder">
+                    <div class="bulb" id="bulb_green"></div>
+                </div>
+                <div class="col-md-2 col-xs-2 bulb-holder">
+                    <div class="bulb" id="bulb_pink"></div>
+                </div>
+                <div class="col-md-2 col-xs-2 bulb-holder">
+                    <div class="bulb" id="bulb_orange"></div>
+                </div>
+            </div>
+
+            <div class="cake">
+                <img src="cake128.png" alt="Cake">
+                <div class="candle">
+                    <div class="candle-flame"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <img src="banner.png" class="bannar">
+                </div>
+            </div>
+
+            <div class="row message">
+                <div class="col-md-12">
+                    <p>Today is...as beautiful as other days... (full message continues)</p>
+                </div>
+            </div>
+            
+            <button id="backBtn">Back</button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="effect.js"></script>
+    <script>
+        const nextBtn = document.getElementById('nextBtn');
+        const backBtn = document.getElementById('backBtn');
+        const section1 = document.getElementById('section1');
+        const section2 = document.getElementById('section2');
+
+        nextBtn.addEventListener('click', () => {
+            section1.classList.add('hidden');
+            section2.classList.remove('hidden');
+        });
+
+        backBtn.addEventListener('click', () => {
+            section2.classList.add('hidden');
+            section1.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
